@@ -1,5 +1,5 @@
 FROM jenkinsci/jnlp-slave
-MAINTAINER Adria Galin <@adriagalin>
+MAINTAINER Datamaker <datamaker@urbanbase.com>
 
 ENV DOCKER_VERSION=1.10.3 DOCKER_COMPOSE_VERSION=1.7.0 KUBECTL_VERSION=v1.2.3
 
@@ -19,6 +19,8 @@ RUN curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE
 
 RUN curl -L https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl \
     && chmod +x /usr/local/bin/kubectl
+
+RUN curl https://install.meteor.com/ | sh
 
 # curl -L https://github.com/docker/compose/releases/download/1.7.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose \ && chmod +x /usr/local/bin/docker-compose
 
